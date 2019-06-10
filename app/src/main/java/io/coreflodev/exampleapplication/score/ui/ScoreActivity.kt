@@ -18,15 +18,25 @@ import javax.inject.Inject
 class ScoreActivity : AppCompatActivity(), ScreenView<ScoreInput, ScoreOutput> {
 
     override fun render(output: ScoreOutput) {
-        error_score_activity.visibility = GONE
-        loading_score_activity.visibility = GONE
-
         when (output) {
             is ScoreOutput.Display -> {
-
+                error_score_activity.visibility = GONE
+                loading_score_activity.visibility = GONE
+                content_score_activity.visibility = VISIBLE
+                percent_score_activity.setPercent(output.data.percent)
+                total_txt_score_activity.text = resources.getString(R.string.max_score, output.data.maxScore)
+                score_txt_score_activity.text = output.data.currentScore.toString()
             }
-            ScoreOutput.Loading -> loading_score_activity.visibility = VISIBLE
-            ScoreOutput.Error -> error_score_activity.visibility = VISIBLE
+            ScoreOutput.Loading -> {
+                error_score_activity.visibility = GONE
+                content_score_activity.visibility = GONE
+                loading_score_activity.visibility = VISIBLE
+            }
+            ScoreOutput.Error -> {
+                loading_score_activity.visibility = GONE
+                content_score_activity.visibility = GONE
+                error_score_activity.visibility = VISIBLE
+            }
         }
     }
 

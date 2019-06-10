@@ -8,7 +8,7 @@ interface RankRepository {
 
     data class CreditScoreInfo(
         val max: Int,
-        val min: Int,
-        val current: Int
+        val current: Int,
+        val percent: Int
     )
 }

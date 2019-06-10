@@ -2,4 +2,6 @@
     <string name="app_name">Clear Score Test</string>
     <string name="error">An error happened ¯\\_(ツ)_/¯ \nPlease check your internet connexion</string>
     <string name="retry">Retry</string>
+    <string name="your_credit_score_is">Your credit score is</string>
+    <string name="max_score">out of %d</string>
 </resources>

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:animateLayoutChanges="true">
@@ -44,7 +45,55 @@
         android:id="@+id/error_score_activity"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:visibility="gone"
         app:constraint_referenced_ids="error_text_score_activity,retry_score_activity" />
 
+    <io.coreflodev.exampleapplication.score.ui.ScoreCircleView
+        android:id="@+id/percent_score_activity"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/credit_txt_score_activity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:text="@string/your_credit_score_is"
+        app:layout_constraintBottom_toTopOf="@+id/score_txt_score_activity"
+        app:layout_constraintEnd_toEndOf="@+id/percent_score_activity"
+        app:layout_constraintStart_toStartOf="@+id/percent_score_activity"
+        app:layout_constraintTop_toTopOf="@+id/percent_score_activity"
+        app:layout_constraintVertical_chainStyle="packed" />
+
+    <TextView
+        android:id="@+id/score_txt_score_activity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="25sp"
+        app:layout_constraintBottom_toTopOf="@+id/total_txt_score_activity"
+        app:layout_constraintEnd_toEndOf="@+id/percent_score_activity"
+        app:layout_constraintStart_toStartOf="@+id/percent_score_activity"
+        app:layout_constraintTop_toBottomOf="@+id/credit_txt_score_activity"
+        tools:text="450" />
+
+    <TextView
+        android:id="@+id/total_txt_score_activity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/percent_score_activity"
+        app:layout_constraintEnd_toEndOf="@+id/percent_score_activity"
+        app:layout_constraintStart_toStartOf="@+id/percent_score_activity"
+        app:layout_constraintTop_toBottomOf="@+id/score_txt_score_activity"
+        tools:text="out of 700" />
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/content_score_activity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:constraint_referenced_ids="percent_score_activity,credit_txt_score_activity,score_txt_score_activity,total_txt_score_activity" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

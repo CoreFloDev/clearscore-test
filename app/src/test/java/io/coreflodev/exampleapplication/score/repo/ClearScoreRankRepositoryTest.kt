@@ -23,7 +23,7 @@ class ClearScoreRankRepositoryTest {
             .assertValue(
                 RankRepository.CreditScoreInfo(
                     max = CREDIT_REPORT_INFO.maxScoreValue,
-                    min = CREDIT_REPORT_INFO.minScoreValue,
+                    percent = CREDIT_REPORT_INFO.score,
                     current = CREDIT_REPORT_INFO.score
                 )
             )
@@ -42,8 +42,8 @@ class ClearScoreRankRepositoryTest {
     companion object {
 
         private val CREDIT_REPORT_INFO = CreditReportInfo(
-            maxScoreValue = 45,
-            minScoreValue = 25,
+            maxScoreValue = 100,
+            minScoreValue = 0,
             score = 85
         )
 

@@ -44,7 +44,7 @@ class DisplayScoreUseCaseTest {
     companion object {
 
         private val A_SCORE = RankRepository.CreditScoreInfo(
-            min = 1,
+            percent = 1,
             max = 2,
             current = 3
         )

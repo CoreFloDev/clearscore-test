@@ -11,8 +11,8 @@ class ClearScoreRankRepository(private val clearScoreApi: ClearScoreApi) : RankR
             .map {
                 RankRepository.CreditScoreInfo(
                     max = it.creditReportInfo.maxScoreValue,
-                    min = it.creditReportInfo.minScoreValue,
-                    current = it.creditReportInfo.score
+                    current = it.creditReportInfo.score,
+                    percent =  ((it.creditReportInfo.score - it.creditReportInfo.minScoreValue) * 100) / (it.creditReportInfo.maxScoreValue - it.creditReportInfo.minScoreValue)
                 )
             }
 

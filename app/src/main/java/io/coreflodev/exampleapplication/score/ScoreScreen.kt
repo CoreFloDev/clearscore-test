@@ -38,7 +38,7 @@ class ScoreScreen(
                     Result.UiUpdate.Error -> ScoreOutput.Error
                     is Result.UiUpdate.Display -> ScoreOutput.Display(
                         data = ScoreViewModel(
-                            minScore = uiState.data.min,
+                            percent = uiState.data.percent,
                             maxScore = uiState.data.max,
                             currentScore = uiState.data.current
                         )
