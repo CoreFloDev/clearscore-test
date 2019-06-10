@@ -21,7 +21,11 @@ class ScoreScreen(
     companion object {
         fun convertInputToAction() = ObservableTransformer<ScoreInput, Action> { observable ->
             observable
-                .map { Action.InitialAction as Action }
+                .map {
+                    when (it) {
+                        ScoreInput.Retry -> Action.InitialAction
+                    } as Action
+                }
                 .startWith(Action.InitialAction)
         }
 

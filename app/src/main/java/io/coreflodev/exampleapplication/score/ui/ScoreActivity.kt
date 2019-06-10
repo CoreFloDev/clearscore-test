@@ -6,16 +6,21 @@ import android.view.View.VISIBLE
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
+import com.jakewharton.rxbinding3.view.clicks
 import io.coreflodev.exampleapplication.R
 import io.coreflodev.exampleapplication.common.arch.Screen
 import io.coreflodev.exampleapplication.common.arch.ScreenView
 import io.coreflodev.exampleapplication.score.ScoreInput
 import io.coreflodev.exampleapplication.score.ScoreOutput
 import io.coreflodev.exampleapplication.score.injection.ScoreStateHolder
+import io.reactivex.Observable
 import kotlinx.android.synthetic.main.activity_score.*
 import javax.inject.Inject
 
 class ScoreActivity : AppCompatActivity(), ScreenView<ScoreInput, ScoreOutput> {
+
+    override fun inputs(): Observable<ScoreInput> =
+        retry_score_activity.clicks().map { ScoreInput.Retry }
 
     override fun render(output: ScoreOutput) {
         when (output) {
