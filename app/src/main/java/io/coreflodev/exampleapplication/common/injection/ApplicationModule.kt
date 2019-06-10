@@ -4,7 +4,7 @@ import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import dagger.Module
 import dagger.Provides
-import io.coreflodev.exampleapplication.common.network.TypicodeApi
+import io.coreflodev.exampleapplication.common.network.ClearScoreApi
 import io.reactivex.schedulers.Schedulers
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
@@ -16,7 +16,7 @@ open class ApplicationModule {
 
     @Provides
     @Named(SERVER_URL)
-    open fun provideServerUrl() = "https://jsonplaceholder.typicode.com"
+    open fun provideServerUrl() = "https://5lfoiyb0b3.execute-api.us-west-2.amazonaws.com/prod/"
 
     @Provides
     fun provideMoshi(): Moshi =
@@ -33,8 +33,8 @@ open class ApplicationModule {
             .build()
 
     @Provides
-    fun provideTypicodeApi(retrofit: Retrofit): TypicodeApi =
-        retrofit.create(TypicodeApi::class.java)
+    fun provideTypicodeApi(retrofit: Retrofit): ClearScoreApi =
+        retrofit.create(ClearScoreApi::class.java)
 
     companion object {
         const val SERVER_URL = "SERVER_URL"
